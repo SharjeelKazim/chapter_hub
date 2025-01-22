@@ -1,30 +1,58 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LoginPage from "./Pages/LoginPage";
-import SignUpPage from './Pages/SignUpPage';
-import HomePage from'./Pages/HomePage';
+import SignUpPage from "./Pages/SignUpPage";
+import HomePage from "./Pages/HomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import Footer_Page from "./components/Home/Footer_Page";
 
 function App() {
-    const router = createBrowserRouter([
-    
-        {
-          path: "/",
-          element: <SignUpPage/>,
-        },
-        {
-          path: "/login_page",
-          element:   <LoginPage/>,
-        },
-        {
-          path:"home",
-          element:<HomePage/>,
-        },
-    
-      ]);
-      return <RouterProvider router={router} />;
+  
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  // Update the <html> element's class when theme changes
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
-    
-    export default App;
-    
+  }, [isDarkMode]);
+
+ 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <>
+          <SignUpPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        </>
+      ),
+    },
+    {
+      path: "/login_page",
+      element: (
+        <>
+          <LoginPage isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        </>
+      ),
+    },
+    {
+      path: "/home",
+      element: (
+        <>
+          <HomePage />
+          <Footer_Page isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        </>
+      ),
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
+}
+
+export default App;
