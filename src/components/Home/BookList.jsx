@@ -91,7 +91,7 @@ const BookList = () => {
             <img
               src="/book-2.svg"
               alt="The Forest"
-              className="w-25 h-30 rounded object-cover"
+              className="w-25 h-30 rounded object-cover cursor-pointer"
             />
             <div>
               <h2 className="text-xl font-bold text-[#232323] dark:text-white">
@@ -110,7 +110,7 @@ const BookList = () => {
             <img
               src="/book-3.svg"
               alt="Allan Green"
-              className="w-25 h-30 rounded object-cover"
+              className="w-25 h-30 rounded object-cover cursor-pointer"
             />
             <div>
               <h2 className="text-lg font-bold text-gray-800 dark:text-white">
@@ -127,11 +127,11 @@ const BookList = () => {
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-4 ">
             <img
               src="/book-4.svg"
               alt="A Doctor in the House"
-              className="w-25 h-30 rounded object-cover"
+              className="w-25 h-30 rounded object-cover cursor-pointer "
             />
             <div>
               <h2 className="text-lg font-bold text-gray-800 dark:text-white">

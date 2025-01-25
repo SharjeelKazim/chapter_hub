@@ -5,9 +5,12 @@ import SignUpPage from "./Pages/SignUpPage";
 import HomePage from "./Pages/HomePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Footer_Page from "./components/Home/Footer_Page";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Books from "./Pages/Books";
 
 function App() {
-  
+  const queryClient = new QueryClient();
+
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
@@ -23,7 +26,6 @@ function App() {
     }
   }, [isDarkMode]);
 
- 
   const router = createBrowserRouter([
     {
       path: "/",
@@ -45,8 +47,24 @@ function App() {
       path: "/home",
       element: (
         <>
-          <HomePage />
-          <Footer_Page isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        
+            <HomePage />
+            <Footer_Page
+              isDarkMode={isDarkMode}
+              setIsDarkMode={setIsDarkMode}
+            />
+          
+        </>
+      ),
+    },
+
+    {
+      path: "/book",
+      element: (
+        <>
+          <QueryClientProvider client={queryClient}>
+            <Books/>
+          </QueryClientProvider>
         </>
       ),
     },

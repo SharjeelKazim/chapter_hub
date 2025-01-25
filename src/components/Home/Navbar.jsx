@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { IoIosArrowDropdown } from "react-icons/io";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [open,SetOpen] = useState(false)
 
   const navbarVariants = {
     hidden: { y: -20, opacity: 0 },
@@ -110,6 +114,9 @@ const Navbar = () => {
             className="w-8 h-8 rounded-full"
           />
           <div>
+
+            <div>
+              <div>
             <h1 className="text-lg font-semibold font-poppins text-[#01AFEE] dark:text-[#01AFEE]">
               Welcome
               <span className="text-[#F5951E] font-semibold"> Back</span>
@@ -117,6 +124,46 @@ const Navbar = () => {
             <p className="text-black text-base font-thin dark:text-gray-300">
               Sharjeel Kazim
             </p>
+            <button
+          onClick={() => SetOpen(!open)}
+          className="flex justify-center w-8 h-8 text-sm font-medium "
+        >
+          <IoIosArrowDropdown />
+
+        </button>
+            </div>
+            {open && (
+        <div className="absolute right-0 z-10 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
+          <ul className="py-1 text-sm text-gray-700">
+            <li>
+              <a
+                href="#profile"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                My Profile
+              </a>
+            </li>
+            <li>
+              <a
+                href="#settings"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Settings
+              </a>
+            </li>
+            <li>
+              <a
+                href="#logout"
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      )}
+
+            </div>
           </div>
         </motion.div>
       </div>
