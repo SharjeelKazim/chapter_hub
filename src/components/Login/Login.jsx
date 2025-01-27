@@ -2,135 +2,140 @@ import React from "react";
 
 const Login = () => {
   return (
-    <section className="w-full  relative flex  ">
-      <div className="w-full md:w-[50%] mx-auto">
-        <img src="bg.png" className="w-full h-[100vh] bg-cover" alt="Background" />
+    <section className="w-full flex flex-col md:flex-row items-center justify-center min-h-screen p-4 lg:p-0">
+      {/* Left Section: Image (Hidden on Mobile) */}
+      <div className="hidden md:block w-[50%]">
+        <img
+          src="bg.png"
+          className="w-full h-[100vh] object-cover"
+          alt="Background"
+        />
       </div>
 
-      <div className="w-full  md:w-[50%] px-4 md:px-10 ">
-      <div className="flex items-center justify-center py-4 ">
-        <img src="/book.svg" alt="Books Icon" className="w-8 h-8" />
-        <h1 className="text-3xl font-bold text-gray-800 ml-3">Books</h1>
-      </div>
-
-        <div className="border shadow-md rounded-lg p-6 mt-4 w-[80%] mx-auto">
-          <p className="text-lg font-poppins font-medium text-center">
-            Create Account
-          </p>
-          <p className="text-sm font-poppins text-[#818181] font-medium text-center">
-            Please create your profile
-          </p>
-
-          <div className="w-full ">
-            <form className=" flex flex-col">
-              <div className="flex gap-16 pt-6">
-                <div>
-                  <h1>
-                    FirstName <span className="text-red-600">*</span>
-                  </h1>
-                  <input
-                    type="text"
-                    placeholder="John"
-                    className="w-full border rounded-lg p-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                <div>
-                  <h1>
-                    LastName <span className="text-red-600">*</span>
-                  </h1>
-                  <input
-                    type="text"
-                    placeholder="Smith"
-                    className="w-full border rounded-lg p-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-              </div>
-
-              <div className="flex gap-16 pt-2">
-                <div>
-                  <h1>
-                    MobileNumber<span className="text-red-600">*</span>
-                  </h1>
-                  <input
-                    type="telephone"
-                    placeholder="+95128796565"
-                    className="w-full border rounded-lg p-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                <div>
-                  <h1>Email</h1>
-                  <input
-                    type="text"
-                    placeholder="email@gmail.com"
-                    className="w-full border rounded-lg p-3 mt-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-              </div>
-
-              <div className="flex gap-16 pt-2">
-                <div>
-                  <h1>
-                    Date of Birthday<span className="text-red-600">*</span>
-                  </h1>
-                  <input
-                    type="date"
-                    className="w-[140px] border rounded-sm p-2 focus:outline-none"
-                  />
-                </div>
-
-                <div className="pl-12">
-                  <h1>
-                    Gender <span className="text-red-600">*</span>
-                  </h1>
-                  <div className="flex gap-4 pt-2">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="male"
-                        className="w-4 h-4"
-                      />
-                      Male
-                    </label>
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="radio"
-                        name="gender"
-                        value="female"
-                        className="w-4 h-4"
-                      />
-                      Female
-                    </label>
-                    
-                  </div>
-
-                </div>
-
-
-              </div>
-              
-              <div className="pt-2">
-            <h1 className="text-base font-poppins font-medium">Password <span className="text-red-600">*</span></h1>
-            <input
-              type="password"
-              placeholder="******"
-              className="p-3 w-full border rounded-lg focus:outline-none"
-            />
+      {/* Right Section: Form */}
+      <div className="w-full md:w-[50%] flex items-center justify-center">
+        <div className="border shadow-md rounded-lg p-6 w-full max-w-lg mx-auto">
+          {/* Logo and Title */}
+          <div className="flex items-center justify-center py-4">
+            <img src="/book.svg" alt="Books Icon" className="w-8 h-8" />
+            <h1 className="text-3xl font-bold text-gray-800 ml-3">Books</h1>
           </div>
 
-          <div className="pt-6 w-full">
-            <button className="p-3 w-full rounded-lg bg-[#01AFEE] text-white">
+          <div className="text-center mb-6">
+            <p className="text-lg font-poppins font-medium">Create Account</p>
+            <p className="text-sm font-poppins text-[#818181] font-medium">
+              Please create your profile
+            </p>
+          </div>
+
+          {/* Form */}
+          <form className="space-y-4">
+            {/* Name Fields */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <label className="block text-sm">
+                  First Name <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="John"
+                  className="w-full border rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm">
+                  Last Name <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Smith"
+                  className="w-full border rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+            </div>
+
+            {/* Mobile and Email */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <label className="block text-sm">
+                  Mobile Number <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="tel"
+                  placeholder="+95128796565"
+                  className="w-full border rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm">Email</label>
+                <input
+                  type="email"
+                  placeholder="email@gmail.com"
+                  className="w-full border rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+            </div>
+
+            {/* Date of Birth and Gender */}
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <label className="block text-sm">
+                  Date of Birthday <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="date"
+                  className="w-full border rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+              </div>
+              <div className="flex-1">
+                <label className="block text-sm">
+                  Gender <span className="text-red-600">*</span>
+                </label>
+                <div className="flex gap-4 mt-2">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="male"
+                      className="w-4 h-4"
+                    />
+                    Male
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="female"
+                      className="w-4 h-4"
+                    />
+                    Female
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="block text-sm">
+                Password <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="password"
+                placeholder="******"
+                className="w-full border rounded-lg p-3 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button className="w-full p-3 rounded-lg bg-[#01AFEE] text-white mt-6">
               Login
             </button>
-          </div>
-          <p className=" text-center">
-            Don’t have an account?
+          </form>
+
+          <p className="text-center mt-4">
+            Don’t have an account?{" "}
             <span className="text-[#F5951E] cursor-pointer">Register</span>
           </p>
-            </form>
-          </div>
         </div>
       </div>
     </section>

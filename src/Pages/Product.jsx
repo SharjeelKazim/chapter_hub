@@ -35,12 +35,12 @@ export default function Product() {
   return (
     <div className="w-[90%] mx-auto py-8">
       {book && (
-        <div className="flex flex-col items-center text-center">
+        <div className="lg:flex flex-col items-center text-center">
 
           <h1 className="font-bold text-4xl mb-6">{book.title}</h1>
-          <div className="flex flex-row items-start justify-center w-full">
+          <div className="lg:flex flex-row items-start justify-center w-full">
  
-            <div className="w-1/3 flex justify-center p-4">
+            <div className="lg:w-1/3 flex justify-center p-4">
               <img
                 src={book.img}
                 alt={book.title}
@@ -49,7 +49,7 @@ export default function Product() {
             </div>
 
   
-            <div className="w-2/3 text-start p-4">
+            <div className="lg:w-2/3 text-start p-4">
 
               {book.description && (
                 <p className="mb-6">

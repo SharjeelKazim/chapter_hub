@@ -29,6 +29,7 @@ const fetchBooks = async (query) => {
 const BookData = () => {
   const navigate = useNavigate();
 
+
   const zoom = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
@@ -91,16 +92,16 @@ const BookData = () => {
         {!showBooks ? (
           <button
             onClick={() => setShowBooks(true)}
-            className="mb-6 p-4 border border-grey-300  text-[#01AFEE] rounded-lg dark:bg-gray-900 dark:text-white dark:border  dark:border-white"
+            className="lg:mb-6 p-4 border border-grey-300  text-[#01AFEE] rounded-lg dark:bg-gray-900 dark:text-white dark:border  dark:border-white"
           >
-            See All The Books
+            See  Books
           </button>
         ) : (
           <button
             onClick={() => setShowBooks(false)}
             className="mb-6 p-4 border border-grey-300  text-[#01AFEE] rounded-lg dark:bg-gray-900 dark:text-white dark:border dark:border-white"
           >
-            Hide All The Books
+            Hide  Books
           </button>
         )}
 
@@ -123,33 +124,34 @@ const BookData = () => {
       ) : (
         showBooks && (
           <motion.div
-            variants={fade}
-            whileInView="visible"
-            initial="hidden"
-            className="grid grid-cols-4 gap-6   mx-5"
-          >
-            {filteredBooks.map((book, index) => (
-              <div
-                onClick={() =>
-                  navigate(`/products/${encodeURIComponent(book.id)}`)
-                }
-                className="border cursor-pointer rounded-lg shadow-md dark:border-none  dark:shadow-lg p-4 flex flex-col items-center text-center"
-                key={index}
-              >
-                <img
-                  src={book.image}
-                  alt={book.title}
-                  className="w-32 h-48 object-cover mb-4"
-                />
-                <h3 className="font-bold text-lg mb-2 dark:text-gray-300">
-                  {book.title}
-                </h3>
-                <p className="text-gray-600 dark:text-white">
-                  By {book.authors.join(", ")}
-                </p>
-              </div>
-            ))}
-          </motion.div>
+  variants={fade}
+  whileInView="visible"
+  initial="hidden"
+  className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-5"
+>
+  {filteredBooks.map((book, index) => (
+    <div
+      onClick={() =>
+        navigate(`/products/${encodeURIComponent(book.id)}`)
+      }
+      className="border  cursor-pointer rounded-lg shadow-md dark:border-none dark:shadow-lg p-4 flex flex-col items-center text-center"
+      key={index}
+    >
+      <img
+        src={book.image}
+        alt={book.title}
+        className="w-28 sm:w-32 h-40 sm:h-48 object-cover mb-4"
+      />
+      <h3 className="font-bold text-base sm:text-lg mb-2 dark:text-gray-300">
+        {book.title}
+      </h3>
+      <p className="text-sm sm:text-base text-gray-600 dark:text-white">
+        By {book.authors.join(", ")}
+      </p>
+    </div>
+  ))}
+</motion.div>
+
         )
       )}
     </motion.div>

@@ -1,17 +1,10 @@
 import React from "react";
-import { SwiperSlide, Swiper } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import { motion } from "framer-motion";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Navigation, Pagination } from "swiper/modules";
-import { motion } from "framer-motion";
-import Slider from "react-slick";
-
 const BookList = () => {
-
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -20,9 +13,8 @@ const BookList = () => {
     slidesToScroll: 1,
   };
 
-
   const fade = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
@@ -31,121 +23,91 @@ const BookList = () => {
     visible: { transition: { staggerChildren: 0.8 } },
   };
 
-  const zoom = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
   return (
-    <motion.section className="bg-white dark:bg-gray-900 py-28 px-14 dark:w-full mx-auto"
-      whileInView="visible" 
-      initial="hidden"      
-      variants={stagger}    
+    <motion.section
+      className="bg-white dark:bg-gray-900 py-10 px-4 md:px-14 mx-auto"
+      whileInView="visible"
+      initial="hidden"
+      variants={stagger}
     >
-      <div className="flex flex-col justify-between md:flex-row items-start gap-10">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-10">
         {/* Carousel Section */}
-        <motion.div 
-          variants={zoom}
-          className="pt-10 w-full md:w-[30%] relative"
-          whileInView="visible" 
-          initial="hidden"
+        <motion.div
+          variants={fade}
+          className="w-full md:w-[30%] relative pt-32"
         >
-          <Slider {...sliderSettings} className="pt-10">
-           
-          
-            <div className="relative">
+          <Slider {...sliderSettings}>
+            <div>
               <img
                 src="reader.svg"
                 alt="Book 1"
-                className="w-[450px] h-[400px]"
+                className="w-full h-[300px] md:h-[400px] object-contain mx-auto"
               />
-              </div>
-              
-              <div>
+            </div>
+            <div>
               <img
                 src="book-3.svg"
                 alt="Book 2"
-                className="w-[450px] h-[400px]"
+                className="w-full h-[300px] md:h-[400px] object-contain mx-auto"
               />
             </div>
-              
-            
-            </Slider> 
-                   
-             </motion.div>
+          </Slider>
+        </motion.div>
 
         {/* Book List Section */}
-        <motion.div 
+        <motion.div
           variants={fade}
           className="w-full md:w-[60%] space-y-8"
-          whileInView="visible" 
-          initial="hidden"
         >
-          <h1 className="text-start text-3xl text-[#F5951E] pb-2 dark:text-white">
+          <h1 className="text-2xl md:text-3xl text-[#F5951E] font-bold pb-4 text-center md:text-left">
             Your Book List at a Place
           </h1>
 
-          {/* Book Items */}
-          <div className="flex items-start gap-4">
-            <img
-              src="/book-2.svg"
-              alt="The Forest"
-              className="w-25 h-30 rounded object-cover cursor-pointer"
-            />
-            <div>
-              <h2 className="text-xl font-bold text-[#232323] dark:text-white">
-                The Forest
-              </h2>
-              <p className="text-[#A8A8A8] dark:text-gray-400">Karen Perry</p>
-              <p className="text-gray-600 mt-2 dark:text-gray-300">
-                Dicta sunt explicabo. Nemo enim ipsam voluptatem voluptas sit
-                odit aut fugit, sed quia consequuntur. Lorem ipsum dolor. Aquia
-                sit amet, elitr, sed diam nonum eirmod tempor invidunt.
-              </p>
+          {[
+            {
+              img: "/book-2.svg",
+              title: "The Forest",
+              author: "Karen Perry",
+              description:
+                "Dicta sunt explicabo. Nemo enim ipsam voluptatem voluptas sit odit aut fugit, sed quia consequuntur. Lorem ipsum dolor. Aquia sit amet, elitr, sed diam nonum eirmod tempor invidunt.",
+            },
+            {
+              img: "/book-3.svg",
+              title: "Allan Green",
+              author: "Karen Perry",
+              description:
+                "Dicta sunt explicabo. Nemo enim ipsam voluptatem voluptas sit odit aut fugit, sed quia consequuntur. Lorem ipsum dolor. Aquia sit amet, elitr, sed diam nonum eirmod tempor invidunt.",
+            },
+            {
+              img: "/book-4.svg",
+              title: "A Doctor in the House",
+              author: "Karen Perry",
+              description:
+                "Dicta sunt explicabo. Nemo enim ipsam voluptatem voluptas sit odit aut fugit, sed quia consequuntur. Lorem ipsum dolor. Aquia sit amet, elitr, sed diam nonum eirmod tempor invidunt.",
+            },
+          ].map((book, index) => (
+            <div
+              key={index}
+              className="flex flex-col md:flex-row items-center gap-4 pb-4 text-center   md:text-left"
+            >
+              <img
+                src={book.img}
+                alt={book.title}
+                className="w-[125px] h-[200px] object-cover rounded md:w-[150px] md:h-[200px]"
+              />
+              <div className="flex-1">
+                <h2 className="text-lg md:text-xl font-bold text-[#232323] dark:text-white">
+                  {book.title}
+                </h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {book.author}
+                </p>
+                <p className="text-sm text-gray-600 mt-2 dark:text-gray-300">
+                  {book.description}
+                </p>
+              </div>
             </div>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <img
-              src="/book-3.svg"
-              alt="Allan Green"
-              className="w-25 h-30 rounded object-cover cursor-pointer"
-            />
-            <div>
-              <h2 className="text-lg font-bold text-gray-800 dark:text-white">
-                Allan Green
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Karen Perry
-              </p>
-              <p className="text-gray-600 mt-2 dark:text-gray-300">
-                Dicta sunt explicabo. Nemo enim ipsam voluptatem voluptas sit
-                odit aut fugit, sed quia consequuntur. Lorem ipsum dolor. Aquia
-                sit amet, elitr, sed diam nonum eirmod tempor invidunt.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4 ">
-            <img
-              src="/book-4.svg"
-              alt="A Doctor in the House"
-              className="w-25 h-30 rounded object-cover cursor-pointer "
-            />
-            <div>
-              <h2 className="text-lg font-bold text-gray-800 dark:text-white">
-                A Doctor in the House
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Karen Perry
-              </p>
-              <p className="text-gray-600 mt-2 dark:text-gray-300">
-                Dicta sunt explicabo. Nemo enim ipsam voluptatem voluptas sit
-                odit aut fugit, sed quia consequuntur. Lorem ipsum dolor. Aquia
-                sit amet, elitr, sed diam nonum eirmod tempor invidunt.
-              </p>
-            </div>
-          </div>
+          ))}
         </motion.div>
       </div>
     </motion.section>
