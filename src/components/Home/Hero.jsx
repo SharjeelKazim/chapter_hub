@@ -68,7 +68,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="w-full mt-8 md:mt-0 md:pl-40"
+          className="w-full pt-24 md:mt-0 md:pl-40"
           variants={fadeInUp}
         >
           <motion.div

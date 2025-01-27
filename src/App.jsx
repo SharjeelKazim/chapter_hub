@@ -7,6 +7,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Footer_Page from "./components/Home/Footer_Page";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Books from "./Pages/Books";
+import Dynamic from "./Pages/Product";
+import Product from "./Pages/Product";
 
 function App() {
   const queryClient = new QueryClient();
@@ -47,13 +49,8 @@ function App() {
       path: "/home",
       element: (
         <>
-        
-            <HomePage />
-            <Footer_Page
-              isDarkMode={isDarkMode}
-              setIsDarkMode={setIsDarkMode}
-            />
-          
+          <HomePage />
+          <Footer_Page isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         </>
       ),
     },
@@ -62,9 +59,17 @@ function App() {
       path: "/book",
       element: (
         <>
-          <QueryClientProvider client={queryClient}>
-            <Books/>
-          </QueryClientProvider>
+          <Books />
+          <Footer_Page isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+        </>
+      ),
+    },
+
+    {
+      path: "/products/:id",
+      element: (
+        <>
+          <Product />
         </>
       ),
     },

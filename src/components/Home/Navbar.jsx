@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-sm py-2 w-[90%] dark:w-full mx-auto">
+    <nav className="bg-white dark:bg-gray-900 shadow-sm py-2 dark:w-full mx-auto">
       {/* Sticky Section (Sticks throughout the page) */}
       <motion.div
         variants={navbarVariants}
@@ -81,7 +81,7 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to="/about"
+              to="/book"
               className="text-[#606060] hover:text-[#01AFEE] text-lg font-poppins dark:text-gray-300"
             >
               Book Club
@@ -93,7 +93,7 @@ const Navbar = () => {
               Book Repo
             </Link>
             <Link
-              to="/OurBlogs"
+              to="/book"
               className="text-[#606060] hover:text-[#01AFEE] text-lg font-poppins dark:text-gray-300"
             >
               Book List
@@ -121,47 +121,103 @@ const Navbar = () => {
               Welcome
               <span className="text-[#F5951E] font-semibold"> Back</span>
             </h1>
+            <div className="flex">
             <p className="text-black text-base font-thin dark:text-gray-300">
               Sharjeel Kazim
             </p>
             <button
           onClick={() => SetOpen(!open)}
-          className="flex justify-center w-8 h-8 text-sm font-medium "
+          className="flex justify-center pt-2 w-10 h-10 text-sm font-medium dark:text-white"
         >
           <IoIosArrowDropdown />
-
         </button>
+        </div>
             </div>
             {open && (
-        <div className="absolute right-0 z-10 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg">
-          <ul className="py-1 text-sm text-gray-700">
-            <li>
-              <a
-                href="#profile"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                My Profile
-              </a>
-            </li>
-            <li>
-              <a
-                href="#settings"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                Settings
-              </a>
-            </li>
-            <li>
-              <a
-                href="#logout"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                Logout
-              </a>
-            </li>
-          </ul>
-        </div>
-      )}
+  <div className="absolute right-0 z-10 mt-2 w-72 bg-white border mr-10 border-gray-200 rounded-lg shadow-lg">
+    {/* User Info */}
+    <div className="flex items-center px-4 py-3 border-b border-gray-200">
+      <img
+        src="/consumer.svg"
+        alt="User Icon"
+        className="w-10 h-10 rounded-full"
+      />
+      <div className="ml-3">
+        <h1 className="text-sm font-semibold text-gray-800">Sharjeel Kazim</h1>
+        <p className="text-xs text-gray-500">sharjeelkazim81@gmail.com</p>
+      </div>
+    </div>
+    <ul className="py-2 text-sm text-gray-700">
+      <li>
+        <a
+          href="#profile"
+          className="flex items-center px-4 py-2 hover:bg-gray-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-gray-500 mr-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5.121 17.804A7.975 7.975 0 014 12C4 7.582 7.582 4 12 4s8 3.582 8 8a7.975 7.975 0 01-1.121 4.804M12 12v6m0 0H9m3 0h3"
+            />
+          </svg>
+          My Profile
+        </a>
+      </li>
+      <li>
+        <a
+          href="#settings"
+          className="flex items-center px-4 py-2 hover:bg-gray-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-gray-500 mr-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M11 11V6a2 2 0 114 0v5m-4 0h4"
+            />
+          </svg>
+          Settings
+        </a>
+      </li>
+      <li>
+        <a
+          href="#logout"
+          className="flex items-center px-4 py-2 hover:bg-gray-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-gray-500 mr-3"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17 16l4-4m0 0l-4-4m4 4H7"
+            />
+          </svg>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+)}
+
 
             </div>
           </div>

@@ -3,10 +3,23 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { Navigation, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
+import Slider from "react-slick";
 
 const BookList = () => {
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
 
   const fade = {
     hidden: { opacity: 0, y: 30 },
@@ -24,7 +37,7 @@ const BookList = () => {
   };
 
   return (
-    <motion.section className="bg-white dark:bg-gray-900 py-20 px-8 dark:w-full mx-auto"
+    <motion.section className="bg-white dark:bg-gray-900 py-28 px-14 dark:w-full mx-auto"
       whileInView="visible" 
       initial="hidden"      
       variants={stagger}    
@@ -37,43 +50,29 @@ const BookList = () => {
           whileInView="visible" 
           initial="hidden"
         >
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={20}
-            Navigation={true}
-            Pagination={{ clickable: true }}
-            modules={[Navigation, Pagination]}
-          >
-            <SwiperSlide className="relative">
+          <Slider {...sliderSettings} className="pt-10">
+           
+          
+            <div className="relative">
               <img
                 src="reader.svg"
                 alt="Book 1"
-                className="w-[414px] h-[579px]"
+                className="w-[450px] h-[400px]"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img
-                  src="Play.svg"
-                  alt="Play button"
-                  className="w-16 h-16 cursor-pointer"
-                />
               </div>
-            </SwiperSlide>
-            <SwiperSlide className="relative">
+              
+              <div>
               <img
-                src="reader.svg"
+                src="book-3.svg"
                 alt="Book 2"
-                className="w-[414px] h-[579px]"
+                className="w-[450px] h-[400px]"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <img
-                  src="Play.svg"
-                  alt="Play button"
-                  className="w-16 h-16 cursor-pointer"
-                />
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </motion.div>
+            </div>
+              
+            
+            </Slider> 
+                   
+             </motion.div>
 
         {/* Book List Section */}
         <motion.div 
