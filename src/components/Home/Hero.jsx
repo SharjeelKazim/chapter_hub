@@ -16,7 +16,11 @@ const Hero = () => {
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
   };
 
   const staggerContainer = {
@@ -26,7 +30,11 @@ const Hero = () => {
 
   const zoomIn = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -71,23 +79,21 @@ const Hero = () => {
           className="w-full pt-24 md:mt-0 md:pl-40"
           variants={fadeInUp}
         >
-          <motion.div
-            className="flex justify-end"
-            variants={zoomIn}
-          >
-            <button className="border flex border-[#F5951E] dark:text-white dark:border-white px-4 py-2 text-[#F5951E] rounded-lg text-lg ">
+          <motion.div className="flex justify-end" variants={zoomIn}>
+            <button className="hidden md:flex border border-[#F5951E] dark:text-white dark:border-white px-4 py-2 text-[#F5951E] rounded-lg text-lg">
               <MdPlaylistAdd size={29} /> Add to list
             </button>
           </motion.div>
 
-          <h1 className="text-[#F5951E] text-2xl font-popins dark:text-white">
-            Book Description
-          </h1>
           <motion.div
-            className="flex justify-end"
+            className="flex justify-between items-center md:hidden"
             variants={zoomIn}
           >
-            <button className="border flex border-[#F5951E] dark:text-white dark:border-white px-4 py-2 text-[#F5951E] rounded-lg text-lg ">
+            <h1 className="text-[#F5951E] text-2xl font-popins dark:text-white">
+              Book Description
+            </h1>
+
+            <button className="flex border border-[#F5951E] dark:text-white dark:border-white px-4 py-2 text-[#F5951E] rounded-lg text-lg">
               <MdPlaylistAdd size={29} /> Add to list
             </button>
           </motion.div>
