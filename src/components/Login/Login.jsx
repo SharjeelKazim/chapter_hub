@@ -119,11 +119,9 @@ const Login = () => {
               />
             </div>
 
-<Link to={"home"}>
             <button className="w-full p-3 rounded-lg bg-[#01AFEE] text-white mt-6">
               Login
             </button>
-            </Link>
           </form>
 
           <p className="text-center mt-4">
