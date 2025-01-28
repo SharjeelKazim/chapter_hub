@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 
 
 const fetchBooks = async (query) => {
@@ -118,7 +120,8 @@ const BookData = () => {
 
       {showBooks && isLoading ? (
         <div className="h-[50vh] flex justify-center items-center">
-          <p className="dark:text-white">Loading data.... 
+          <p className="dark:text-white"><AiOutlineLoading3Quarters  className="animate-spin"/>
+
           </p>
         </div>
       ) : (

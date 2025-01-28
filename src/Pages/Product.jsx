@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 
 export default function Product() {
   const { id } = useParams();
@@ -29,7 +31,8 @@ export default function Product() {
     enabled: !!id,
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p className="flex justify-center items-center"><AiOutlineLoading3Quarters  className="animate-spin"/>
+</p>;
   if (isError) return <p>Error loading book details!</p>;
 
   return (
