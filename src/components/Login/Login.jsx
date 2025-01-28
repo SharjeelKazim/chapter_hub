@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <section className="w-full flex flex-col md:flex-row items-center justify-center min-h-screen p-4 lg:p-0">
-      {/* Left Section: Image (Hidden on Mobile) */}
       <div className="hidden md:block w-[50%]">
         <img
           src="bg.png"
@@ -13,10 +12,8 @@ const Login = () => {
         />
       </div>
 
-      {/* Right Section: Form */}
       <div className="w-full md:w-[50%] flex items-center justify-center">
         <div className="border shadow-md rounded-lg p-6 w-full max-w-lg mx-auto">
-          {/* Logo and Title */}
           <div className="flex items-center justify-center py-4">
             <img src="/book.svg" alt="Books Icon" className="w-8 h-8" />
             <h1 className="text-3xl font-bold text-gray-800 ml-3">Books</h1>
@@ -29,9 +26,7 @@ const Login = () => {
             </p>
           </div>
 
-          {/* Form */}
           <form className="space-y-4">
-            {/* Name Fields */}
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <label className="block text-sm">
@@ -55,7 +50,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Mobile and Email */}
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <label className="block text-sm">
@@ -77,7 +71,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Date of Birth and Gender */}
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1">
                 <label className="block text-sm">
@@ -115,7 +108,6 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Password */}
             <div>
               <label className="block text-sm">
                 Password <span className="text-red-600">*</span>
