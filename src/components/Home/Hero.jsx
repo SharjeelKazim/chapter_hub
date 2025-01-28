@@ -83,6 +83,14 @@ const Hero = () => {
           <h1 className="text-[#F5951E] text-2xl font-popins dark:text-white">
             Book Description
           </h1>
+          <motion.div
+            className="flex justify-end"
+            variants={zoomIn}
+          >
+            <button className="border flex border-[#F5951E] dark:text-white dark:border-white px-4 py-2 text-[#F5951E] rounded-lg text-lg ">
+              <MdPlaylistAdd size={29} /> Add to list
+            </button>
+          </motion.div>
 
           <p className="mt-4 text-gray-700 text-lg leading-relaxed dark:text-gray-300">
             Explores the principles and techniques of designing with a
